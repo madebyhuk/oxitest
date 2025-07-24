@@ -1,0 +1,63 @@
+# Software version: DEMO_VM-OcNOS-SP-PLUS-x86-6.6.0-GA 03/24/2025 05:49:09
+#  Copyright (C) 2025 IP Infusion. All rights reserved
+# 
+#  Software Product: OcNOS-SP, Version: 6.6.0
+#  Build Number: 248
+#  Release: GA
+#  Hardware Model: 
+#  Software Feature Code: PLUS-x86
+#  Software Baseline Version: 6.5.2-48
+#                   ^
+# % Invalid input detected at '^' marker.
+# 
+#                  ^
+# % Invalid input detected at '^' marker.
+# 
+#             ^
+# % Invalid input detected at '^' marker.
+# 
+# License Type: Trial edition
+# Remaining days to expire : 365 day(s)
+# Node Identifier: NOT SETTABLE
+# Device software : OCNOS-SP-PLUS-X86
+!
+! Software version: DEMO_VM-OcNOS-SP-PLUS-x86-6.6.0.248-GA 03/24/2025 05:49:09
+!
+! Last configuration change at 13:50:16 UTC Thu Jul 24 2025 by ocnos
+!
+feature netconf-ssh 
+feature netconf-tls 
+!
+service password-encryption
+!
+snmp-server enable traps link linkDown
+snmp-server enable traps link linkUp
+!
+qos enable
+!
+ip domain-lookup
+errdisable cause stp-bpdu-guard
+feature telnet
+feature ssh
+feature dns relay
+ip dns relay
+ipv6 dns relay
+feature ntp
+ntp enable
+!
+ip vrf management
+!
+interface lo
+ ip address 127.0.0.1/8
+ ipv6 address ::1/128
+!
+interface eth0
+ ip address 192.168.236.2/24
+!
+ exit
+!
+ip route 0.0.0.0/0 192.168.236.1
+!
+!
+end
+
