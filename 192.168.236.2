@@ -23,7 +23,7 @@
 !
 ! Software version: DEMO_VM-OcNOS-SP-PLUS-x86-6.6.0.248-GA 03/24/2025 05:49:09
 !
-! Last configuration change at 13:57:16 UTC Thu Jul 24 2025 by ocnos
+! Last configuration change at 17:02:26 MSK Thu Jul 24 2025 by ocnos
 !
 feature netconf-ssh 
 feature netconf-tls 
@@ -36,6 +36,7 @@ snmp-server enable traps link linkUp
 qos enable
 !
 hostname lab-02
+clock timezone Moscow
 ip domain-lookup
 errdisable cause stp-bpdu-guard
 feature telnet
@@ -53,6 +54,7 @@ interface lo
  ipv6 address ::1/128
 !
 interface eth0
+ description management
  ip address 192.168.236.2/24
 !
  exit
