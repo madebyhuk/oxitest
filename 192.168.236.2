@@ -7,13 +7,13 @@
 #  Hardware Model: 
 #  Software Feature Code: PLUS-x86
 #  Software Baseline Version: 6.5.2-48
+#                    ^
+# % Invalid input detected at '^' marker.
+# 
 #                   ^
 # % Invalid input detected at '^' marker.
 # 
-#                  ^
-# % Invalid input detected at '^' marker.
-# 
-#             ^
+#              ^
 # % Invalid input detected at '^' marker.
 # 
 # License Type: Trial edition
@@ -23,7 +23,7 @@
 !
 ! Software version: DEMO_VM-OcNOS-SP-PLUS-x86-6.6.0.248-GA 03/24/2025 05:49:09
 !
-! Last configuration change at 13:50:16 UTC Thu Jul 24 2025 by ocnos
+! Last configuration change at 13:57:16 UTC Thu Jul 24 2025 by ocnos
 !
 feature netconf-ssh 
 feature netconf-tls 
@@ -35,6 +35,7 @@ snmp-server enable traps link linkUp
 !
 qos enable
 !
+hostname lab-02
 ip domain-lookup
 errdisable cause stp-bpdu-guard
 feature telnet
