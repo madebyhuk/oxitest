@@ -1,0 +1,93 @@
+# Software version: DEMO_VM-OcNOS-SP-PLUS-x86-6.6.0-GA 03/24/2025 05:49:09
+#  Copyright (C) 2025 IP Infusion. All rights reserved
+# 
+#  Software Product: OcNOS-SP, Version: 6.6.0
+#  Build Number: 248
+#  Release: GA
+#  Hardware Model: 
+#  Software Feature Code: PLUS-x86
+#  Software Baseline Version: 6.5.2-48
+#                    ^
+# % Invalid input detected at '^' marker.
+# 
+#                   ^
+# % Invalid input detected at '^' marker.
+# 
+#              ^
+# % Invalid input detected at '^' marker.
+# 
+# License Type: Trial edition
+# Remaining days to expire : 365 day(s)
+# Node Identifier: NOT SETTABLE
+# Device software : OCNOS-SP-PLUS-X86
+!
+! Software version: DEMO_VM-OcNOS-SP-PLUS-x86-6.6.0.248-GA 03/24/2025 05:49:09
+!
+! Last configuration change at 16:28:28 MSK Wed Jul 23 2025 by ocnos
+!
+feature netconf-ssh 
+feature netconf-tls 
+!
+no service password-encryption
+!
+logging monitor 2
+logging logfile USER_LOGFILE 5
+logging level nsm 5 
+logging level hsl 5 
+logging level bgp 5 
+logging level lag 5 
+logging level all 4 
+snmp-server enable traps link linkDown
+snmp-server enable traps link linkUp
+!
+bgp extended-asn-cap 
+!
+bfd notification enable
+bfd interval 250 minrx 250 multiplier 3
+!
+qos enable
+qos statistics
+!
+hostname lab-01
+clock timezone Moscow
+ip domain-lookup
+ip domain-name test.local
+ip name-server 1.1.1.1
+ip name-server 2.2.2.2
+ip name-server 3.3.3.3
+errdisable cause stp-bpdu-guard
+errdisable timeout interval 60
+no feature telnet
+feature ssh
+feature dns relay
+ip dns relay
+ipv6 dns relay
+feature ntp
+ntp enable
+ntp server 10.10.10.10 
+ntp server 20.20.20.20 
+ntp server 30.30.30.30 
+ntp server 40.40.40.40 
+username ecproot role network-admin password encrypted $6$bJoWPrH1$KgYUWQh/bGrCQjmk8QB.aOLVD4/5zmipD44s/MOd.sMgzpiMMpsmGxEKs7ZEap0T05b5NtGehM2235i29O/oS.
+logging remote server 10.77.81.80 6 port 2311 
+!
+ip vrf management
+!
+interface lo
+ ip address 127.0.0.1/8
+ ip address 10.0.0.1/32 secondary
+ ipv6 address ::1/128
+!
+interface eth0
+ ip address 192.168.235.2/24
+!
+ exit
+!
+ip route 0.0.0.0/0 192.168.235.1
+!
+line vty 22 23
+ exec-timeout 0 0
+!
+!
+end
+
